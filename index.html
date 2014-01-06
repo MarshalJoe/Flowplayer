@@ -16,7 +16,7 @@
 
 </head>
 <body>
-	<h1>B-Detection Test (in green)</h1>
+	<!-- <h1>Automatic setup test</h1>
 	
 	<div class="top-container">
 		<div class="flowplayer">
@@ -24,20 +24,26 @@
 	      <source src="http://video-js.zencoder.com/oceans-clip.mp4" type='video/mp4' />
 	   </video>
 		</div>
-	</div>
+	</div> -->
+
+	<h1>Manual install test</h1>
 
 	<div class="bottom-container">
-		<a
-    href="bbb-800.mp4"
-    style="display:block;width:480px;height:300px;"
-    id="player">
+		<div class="player" data-ratio="0.4167">
+		   <video preload="none">
+		      <source src="http://video-js.zencoder.com/oceans-clip.mp4" type="video/mp4">
+		   </video>
+			</div>
+	 	</div>
+
+<script>
+$(function () {
  
-		<!-- splash image inside the container -->
-		<img src="/media/img/home/flow_eye.jpg"
-    alt="Search engine friendly content" />
+   // install flowplayer to an element with CSS class "player"
+   $(".player").flowplayer({ swf: "/swf/5.4.6/flowplayer.swf" });
  
-		</a>
-	</div>
+});
+</script>
 
 </body>
 </html>
