@@ -40,7 +40,41 @@
 $(function () {
  
    // install flowplayer to an element with CSS class "player"
-   $(".player").flowplayer({ swf: "/swf/5.4.6/flowplayer.swf" });
+   $(".player").flowplayer({ 
+   	//swf: "/swf/5.4.6/flowplayer.swf"
+   	});
+
+   flowplayer("player", "/swf/flowplayer-3.1.2.swf", {
+		
+	// configure the required plugin
+	plugins:  {
+		
+		// bandwidth check plugin
+		bwcheck: {  
+			url: 'flowplayer.bwcheck-3.1.1.swf',   
+			netConnectionUrl: '/swf/expressinstall.swf',
+			bitrates: [40, 150, 400, 700, 1000],
+		
+			// this method is called when the bandwidth check is done
+			onBwDone: function(url, chosenBitrate, bitrate) {
+				var el = document.getElementById("info");
+				el.innerHTML = "Your speed is: " +bitrate+ "<br />Video file served: " +url;
+			}
+		}
+		
+	}, 
+
+	// configure the clip to use the "rtmp" plugin for providing video data
+	clip: {  
+		urlResolvers: 'bwcheck'
+	}
+	
+});
+
+
+
+
+   
  
 });
 </script>
